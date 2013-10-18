@@ -355,13 +355,13 @@ input[type="text"]         { -webkit-appearance: none; border-radius: 0; }
 .col-left { float:left; width:195px; padding:0 0 1px; }
 .col-main { float:left; width:655px; padding:0 0 1px; }
 .col-right { float:right; width:195px; padding:0 0 1px; }
-
+.col2-right-layout .col-right { width: 253px; }
 /* 1 Column Layout */
 .col1-layout .col-main { float:none; width:auto; }
 
 /* 2 Columns Layout */
 .col2-left-layout .col-main { float:right; }
-.col2-right-layout .col-main {}
+.col2-right-layout .col-main { width: 575px; }
 .col2-right-category-layout .col-main { float:none; width:auto; }
 
 /* 3 Columns Layout */
@@ -1378,7 +1378,7 @@ ol.products-list li.item div.links-set { border-top: 1px solid #d5d5d5; padding-
 .products-list .desc .link-learn { font-size:11px; }
 .products-list button.btn-cart {
     float: left;
-    margin-right: 15px;
+    margin-right: 25px;
 }
 .products-list .add-to-links { 
     float: left;
@@ -3081,7 +3081,7 @@ div.top-cart .block-content ol li {
 
 .box-scroll {
     width: 100%;
-    margin-bottom: 50px;
+    margin-bottom: 45px;
     min-height: 280px
 }
 
@@ -4321,6 +4321,8 @@ p.interact {
 .navbar {
   overflow: hidden
 }
+
+
 /*===*/
 /* 1024px < width */
 @media only screen and (min-width: 1025px)  {
@@ -4401,12 +4403,12 @@ p.interact {
 
 /* 2 Columns Left Layout */
     .col2-left-layout .col-main {
-        width: 579px;
+        width: 500px;
     }
 
 /* 2 Columns Right Layout */
     .col2-right-layout .col-main {
-        width: 579px;
+        width: 500px;
     }
 
 /* 3 Columns Layout */
@@ -4573,6 +4575,7 @@ p.interact {
         height: 180px !important;
         margin: 0 !important;
         overflow: visible !important;
+        min-height:72px;
     }
 /* Layout ================================================================================ */    
     .main-container {
@@ -4588,6 +4591,13 @@ p.interact {
         width: 523px;
     }
 
+    .col2-left-layout .col-main {
+        width: 440px;
+    }
+
+    .col2-right-layout .col-main {
+        width: 440px;
+    }
 /* 3 Columns Layout */
     .col3-layout .col-wrapper {
         width: 523px;
@@ -4685,7 +4695,7 @@ p.interact {
     
     /* Contact Us ================================================================*/
     .block.block-contactform .fields .field input[type=text] {
-        width: 178px;
+        
     }
     .block.block-contactform .form-list li.wide textarea {
         width: 403px;
@@ -4971,6 +4981,7 @@ p.interact {
         height: 80px !important;
         margin: 0 !important;
         overflow: visible !important;
+        min-height: 72px;
     }
     .header div.copyrights {
         bottom: 7px;
@@ -5022,6 +5033,19 @@ p.interact {
         min-width: 220px;
         width: 100%;
         margin-bottom: 30px;
+    }
+    
+    .col2-right-layout .col-main {
+        width: 100%;
+    }
+    .col2-left-layout .col-main {
+        width: 100%;
+    }
+    .col2-left-layout .col-right {
+        width: 100%;
+    }
+    .col2-right-layout .col-right {
+        width: 100%;
     }
     .col-left {
         min-width: 220px;
@@ -5389,3 +5413,4 @@ p.interact {
     .box-scroll { position: static; }
     .header div.social-icons { position: static; margin-left: 30px; }
     .header div.copyrights { position: static; margin-left: 30px; margin-top: 85px; }
+}

@@ -1402,8 +1402,12 @@
             if(windowWidth > 1024)
                 left = (windowWidth-$('.bx-controls-direction').width()-219) / 2 + 219;
             if(windowWidth <= 1024){
-                top = (windowHeight-$('.bx-controls-direction').height()-190) / 2 + 190;
-                top = (top<190)?190:top;
+                if($(window).width()/$(window).height()<1.6){
+                    top = (windowHeight-$('.bx-controls-direction').height()-190) / 2 + 190;
+                    top = (top<190)?190:top;
+                } else {
+                    top = 30;
+                }
             }
             if(windowWidth < 768){
                 top = (windowHeight-$('.bx-controls-direction').height()-138) / 2 + 138;

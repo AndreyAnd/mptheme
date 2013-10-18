@@ -9,7 +9,7 @@ class Trio_Trio_Helper_Cssconfig extends Mage_Core_Helper_Abstract
 	public function __construct()
 	{
 		$this->generatedCssFolder = 'css/configed/';
-		$this->generatedCssPath = Mage::getSingleton('core/design_package')->getPackageName() . $this->generatedCssFolder;
+		$this->generatedCssPath = 'frontend/default/trio/' . $this->generatedCssFolder;
 		$this->generatedCssDir = Mage::getBaseDir('skin') . '/' . $this->generatedCssPath;
 	}
 	

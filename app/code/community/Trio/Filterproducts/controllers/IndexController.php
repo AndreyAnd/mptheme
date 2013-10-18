@@ -25,6 +25,7 @@ class Trio_Filterproducts_IndexController extends Mage_Core_Controller_Front_Act
     }
 	public function featuredAction()
     {
+        header('Access-Control-Allow-Origin: *');
         $block = $this->getLayout()->createBlock(
             'core/template',
             'featured_product',
@@ -34,6 +35,7 @@ class Trio_Filterproducts_IndexController extends Mage_Core_Controller_Front_Act
     }
 	public function newproductAction()
     {
+        header('Access-Control-Allow-Origin: *');
         $block = $this->getLayout()->createBlock(
             'core/template',
             'new_product',
@@ -44,6 +46,7 @@ class Trio_Filterproducts_IndexController extends Mage_Core_Controller_Front_Act
 	
 	public function specialAction()
     {
+        header('Access-Control-Allow-Origin: *');
         $block = $this->getLayout()->createBlock(
             'core/template',
             'special_product',

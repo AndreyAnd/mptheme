@@ -2,7 +2,7 @@
 <config>
     <tabs>
         <triotheme translate="label" module="trio_mod">
-            <label>MPQuote</label>
+            <label>Trio (1.5.0)</label>
             <sort_order>101</sort_order>
         </triotheme>
         <trioextensions translate="label" module="trio_mod">

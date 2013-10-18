@@ -1,0 +1,11 @@
+/**
+ * WARNING: Do not change this file. Your changes will be lost.
+ * 2013-10-13 13:10:27 */
+
+
+@media only screen and (max-width: 767px)  {
+    div.mini-cart-layer { display: none; }
+}
+
+@media only screen and (min-width: 1025px) and (max-height: 800px)  {
+}

@@ -74,22 +74,11 @@ $code  = $store->getCode();
                     <?php
                         if(Mage::getStoreConfig("trio_settings/category_grid/hover_button", $code)){    
                     ?>
-					<?php /*
                     <ul class="cart-button-set">
                         <li class="first"><a href="<?php echo $this->getAddToCartUrl($_product) ?>" class="addtocart" title="<?php echo $this->__('Add to Cart') ?>"><?php echo $this->__('Add to Cart') ?></a></li>
                         <li><a href="<?php echo $this->helper('wishlist')->getAddUrl($_product) ?>" class="addtowishlist" title="<?php echo $this->__('Add to Wishlist') ?>"><?php echo $this->__('Add to Wishlist') ?></a></li>
-                        <li class="last"><a href="<?php echo $this->getAddToCompareUrl($_product) ?>" class="addtocompare" title="<?php echo $this->__('Add to Compare') ?>"><?php echo $this->__('Add to Compare') ?></a></li>
+                        <li class="last"><a href="javascript:void(0)" url="<?php echo $this->getAddToCompareUrl($_product) ?>" class="addtocompare" title="<?php echo $this->__('Add to Compare') ?>"><?php echo $this->__('Add to Compare') ?></a></li>
                     </ul>
-					*/?>
-					<ul class="cart-button-set">
-						<li class="first">							
-							<?php echo Mage::app()->getLayout()->createBlock('qquoteadv/qquotebtn')->setData('product', $_product)
-									->setTemplate('qquoteadv/catalog/product/c2qBtnGrid.phtml')->toHtml();
-							?>
-						</li>
-						<li><a href="<?php echo $this->helper('wishlist')->getAddUrl($_product) ?>" class="addtowishlist" title="<?php echo $this->__('Add to Wishlist') ?>"><?php echo $this->__('Add to Wishlist') ?></a></li>
-						<li class="last"><a href="<?php echo $this->getAddToCompareUrl($_product) ?>" class="addtocompare" title="<?php echo $this->__('Add to Compare') ?>"><?php echo $this->__('Add to Compare') ?></a></li>
-					</ul>
                     <?php
                         }
                     ?>
@@ -123,6 +112,22 @@ $code  = $store->getCode();
         jQuery('.products-grid li:nth-child(3n+1)').addClass('nth-child-3np1');
         jQuery('.products-grid li:nth-child(2n)').addClass('nth-child-2n');
         jQuery('.products-grid li:nth-child(2n+1)').addClass('nth-child-2np1');
+        
+        jQuery('.filterproducts .addtocompare').click(function(e){
+            jQuery("body").css("cursor", "progress");
+            jQuery.ajax({
+                url: jQuery(this).attr('url'),
+                context: document.body,
+                success: function(msg) {
+                    jQuery("body").css("cursor", "default");
+                    alert('Added to the compare list.');
+                },
+                error: function(){
+                    jQuery("body").css("cursor", "default");
+                    alert('Failed to adding product into compare list.');
+                }
+            });
+        });
 <?php
     if(Mage::getStoreConfig("trio_settings/category_grid/hover_button", $code)){    
 ?>

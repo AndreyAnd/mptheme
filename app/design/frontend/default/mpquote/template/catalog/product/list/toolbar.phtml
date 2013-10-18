@@ -53,8 +53,10 @@
             <?php endif; ?>
         </div>
 <?php
+if(Mage::app()->getRequest()->getModuleName() != Trio_Blog_Helper_Data::DEFAULT_ROOT){
     $block = new Trio_Ajaxfilter_Block_Catalog_Layer_Filter_Price();
     echo $block->getHtml();
+}
 ?>
         <?php if( $this->isEnabledViewSwitcher() ): ?>
         <div class="view-mode">
@@ -70,8 +72,13 @@
             <?php endif; ?>
         </div>
         <?php endif; ?>
-
+<?php 
+if(Mage::app()->getRequest()->getModuleName() != Trio_Blog_Helper_Data::DEFAULT_ROOT){
+?>
         <button class="button btn-compare" onclick="setLocation('<?php echo $_helper->getListUrl(); ?>')"><span><span><?php echo $this->__('Compare'); ?></span></span></button>
+<?php
+}
+?>
         </div>
     </div>
 

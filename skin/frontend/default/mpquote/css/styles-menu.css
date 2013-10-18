@@ -1,4 +1,5 @@
 #nav em { font-style: normal; }
+#nav.menutype2 li em { display: none; }
 .tablet-overlay { 
     background: url(../images/top-menu-bg-overlay.png); 
     position: fixed; 
@@ -157,7 +158,7 @@
     #nav.menutype2 li.expanded span.plus {
         background: url(../images/expand-icon2.png) 10px -40px no-repeat;
     }
-    #nav.menutype2 li.level2 { padding-bottom: 2px; }
+    #nav.menutype2 li.level2 { padding-bottom: 2px;}
     #nav.menutype2 li.level2 a {
         border-right: 0 !important;
         margin-right: 5px;
@@ -165,6 +166,8 @@
         border-top: 1px solid #ddd;
         border-bottom: 1px solid #ddd;
         padding: 7px 0 10px 0;
+        display: block; 
+        min-height: 55px; 
     }
     #nav.menutype2 li.level2 a span {
         font-family: 'PTSans_Caption';
