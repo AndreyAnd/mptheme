@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Trio_Mod>
+            <version>1.0.0</version>
+        </Trio_Mod>
+    </modules>
+    <global>
+        <helpers>
+            <trio_mod>
+                <class>Trio_Mod_Helper</class>
+            </trio_mod>
+        </helpers>
+    </global>
+</config>

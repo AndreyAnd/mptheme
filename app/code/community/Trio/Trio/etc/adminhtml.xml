@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config>
+    <acl>
+        <resources>
+            <admin>
+                <children>
+                    <system>
+                        <children>
+                            <config>
+                                <children>
+                                    <trio_design translate="title" module="trio">
+                                        <title>Theme Design</title>
+                                    </trio_design>
+                                    <trio_settings translate="title" module="trio">
+                                        <title>Theme Settings</title>
+                                    </trio_settings>
+                                </children>
+                            </config>
+                        </children>
+                    </system>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+</config>

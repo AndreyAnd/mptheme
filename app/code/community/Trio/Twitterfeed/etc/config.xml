@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Trio_Twitterfeed>
+            <version>1.0.0</version>
+        </Trio_Twitterfeed>
+    </modules>
+    <global>
+        <helpers>
+            <twitterfeed>
+                <class>Trio_Twitterfeed_Helper</class>
+            </twitterfeed>
+        </helpers>
+    </global>
+    <default>
+        <twitterfeed>
+            <general>
+                <trio_twitter_widgetkey>362597660089274368</trio_twitter_widgetkey>
+                <trio_twitter_show_counts>2</trio_twitter_show_counts>
+            </general>
+        </twitterfeed>
+    </default>
+</config>

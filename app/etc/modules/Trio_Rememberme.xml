@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+	<modules>
+		<Trio_Rememberme>
+			<active>true</active>
+			<codePool>community</codePool>
+		</Trio_Rememberme>
+	</modules>
+</config>

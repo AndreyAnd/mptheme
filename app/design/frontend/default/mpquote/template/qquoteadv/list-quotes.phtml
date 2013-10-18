@@ -1,0 +1,59 @@
+<?php
+/**
+ *
+ * @see Mage_Checkout_Block_Cart_Sidebar
+ */
+
+?>
+<div class="mini-cart-layer">
+	<div class="top-cart">
+		<div class="block block-cart block-quote">
+			<?php $_quoteQty = $this->getQuoteQty() ?>
+			<?php /*
+			<div class="block-title">
+				<strong><span><?php echo $this->__('My Quote') ?></span></strong>
+			</div>
+			*/?>
+			
+			<div class="block-title<?php if(!$_quoteQty) { echo (' no-items'); } ?>">
+			
+				<span id="cartHeader">
+					<?php if ($_quoteQty==1): ?>
+						<p class="amount"><?php echo $this->__('There is <a href="%s">1 item</a> in your quote.', $this->getUrl('qquoteadv/index/')) ?></p>
+					<?php else: ?>
+						<p class="amount"><?php echo $this->__('There are <a href="%s">%s items</a> in your quote.', $this->getUrl('qquoteadv/index/'), $_quoteQty) ?></p>
+					<?php endif ?>
+				   
+				</span>
+				
+			</div>
+			<div id="topCartContent" class="block-content" style="display:none">
+				<div class="inner-wrapper">
+					<?php if ($_quoteQty>0): ?>
+						<p class="block-subtitle"><?php echo $this->__('Recently added item(s)') ?></p>
+						<ol id="cart-sidebar" class="mini-products-list">
+							<?php foreach( $this->getQuote() as $item){  		
+								$product = $this->getProduct($item->getProductId());
+								$quoteByProduct = Mage::helper('qquoteadv')->getQuoteItem($product, $item->getAttribute());
+								foreach($quoteByProduct->getAllItems() as $_item) {
+									$_item->setId($item->getId());	
+									if( $_item->getProductId() == $product->getId() ) {
+									echo $this->getItemHtml($_item);   		
+									}
+									}
+								 } 
+							 ?>
+						</ol>
+						<div class="actions">
+						   <button type="button" title="<?php echo $this->__('Submit Quote') ?>" class="button" onclick="setLocation('<?php echo Mage::getUrl('qquoteadv/index/'); ?>')"><span><span><?php echo $this->__('Submit Quote') ?></span></span>
+						   </button>
+						</div>
+					<?php else: ?>
+						<p class="empty"><?php echo $this->__('You have no items in your quote.') ?></p>
+					<?php endif ?>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+

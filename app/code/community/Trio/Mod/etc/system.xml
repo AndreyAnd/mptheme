@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<config>
+    <tabs>
+        <triotheme translate="label" module="trio_mod">
+            <label>MPQuote</label>
+            <sort_order>101</sort_order>
+        </triotheme>
+        <trioextensions translate="label" module="trio_mod">
+            <label>Trio Extensions</label>
+            <sort_order>102</sort_order>
+        </trioextensions>
+    </tabs>
+</config>

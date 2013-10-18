@@ -1,0 +1,19 @@
+.block.block-cart {margin:0;}
+.block.block-cart .block-title {
+	background:none;
+	border-style:none;
+}
+.block.block-cart .mini-products-list .product-image img {
+	display:block;
+	margin:0 auto;
+}
+.block.block-cart .btn-edit {display:none;}
+.block.block-cart .btn-remove {
+	width:13px;
+	height:13px;
+	background: url(../images/close.png) no-repeat;
+}
+#topCartContent {
+	margin:0;
+	top:25px;
+}
