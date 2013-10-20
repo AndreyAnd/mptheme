@@ -1,0 +1,46 @@
+/**
+ * WARNING: Do not change this file. Your changes will be lost.
+ * 2013-10-05 14:11:22 */
+
+
+body {
+	color: #222222;
+        }
+a { 
+    color: #797872; 
+        }
+a:hover { color: #f24e08; }
+button.button span { 
+    background: #aec900; 
+    color: #FFFFFF; 
+        }
+button.button:hover span { background: #f24e08; color: #ffffff; }
+button.button:active span { background: #f24e08; color: #ffffff; }
+.sale-product-icon { background: #f24e08; color: #ffffff; }
+.new-product-icon { background: #aec900; color: #ffffff; }
+#opc-review .data-table tfoot td.last strong .price, #opc-review td.last .price, .cart .totals tfoot td .price, .cart-table td.sub-total, .top-cart .qty-price .price, .block .regular-price, .block .regular-price .price, .price-box .price, .special-price .price { 
+    color: #f24e08; 
+        }
+.block .block-title strong {
+        }
+.page, .header, .header .header-topbar, .header h1.page-title { background: transparent; }
+.page { background-image: url(http://mp2.dev.3io.nl/media/wysiwyg/trio/texture/default/6.png); background-color: #f1f1f1; }
+.header .header-topbar { background: transparent; }
+.header-container { position: relative; }
+.main-container { padding-top: 0; }
+.header .header-bground { background-color: transparent; }
+.header .form-search input.input-text { color: #74736a; border-color: #c5c5c5; }
+.header .form-search input.input-text:hover { color: #74736a; border-color: #c5c5c5; }
+.header h1.page-title {
+        }
+.footer { color: #595959; }
+.footer a { color: #797872; }
+.footer a:hover { color: #4e4d49; }
+.footer button.button span { background: #535451; color: #ffffff; }
+.footer button.button:hover span { background: #2f3538; color: #ffffff; }
+.footer .col3-set { color: #595959; }
+.footer .col3-set a { color: #797872; }
+.footer .col3-set a:hover { color: #4e4d49; }
+.footer .footer-menu { color: #595959; }
+.footer .footer-menu a { color: #797872; }
+.footer .footer-menu a:hover { color: #4e4d49; }

@@ -42,6 +42,11 @@ Default layout, loads most of the pages
                     <label>Shopping Cart Cartheader Extra Actions</label>
                 </block>
             </block>
+            <block type="qquoteadv/sidebar" name="list-quotes" template="qquoteadv/list-quotes.phtml" >
+                    <action method="addItemRender"><type>simple</type><block>qquoteadv/sidebar_renderer</block><template>qquoteadv/sidebar/default.phtml</template></action>
+                    <action method="addItemRender"><type>bundle</type><block>qquoteadv/sidebar_renderer</block><template>qquoteadv/sidebar/default.phtml</template></action>
+                    <action method="addItemRender"><type>configurable</type><block>qquoteadv/sidebar_renderer</block><template>qquoteadv/sidebar/default.phtml</template></action>
+            </block>
             <block type="core/template" name="topSpecialMenu" template="page/html/topspecialmenu.phtml"/>
             <block type="core/template" name="socialIcons" template="trio/socialicons/socialicons.phtml"/>
             <block type="core/template" name="copyrights" template="trio/copyrights.phtml"/>
