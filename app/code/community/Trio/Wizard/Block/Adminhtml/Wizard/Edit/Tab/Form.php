@@ -31,12 +31,12 @@ class Trio_Wizard_Block_Adminhtml_Wizard_Edit_Tab_Form extends Mage_Adminhtml_Bl
                         "label" => Mage::helper("wizard")->__("Title"),
                         "name" => "title",
                         ));
-                        /*
+                        
                         $fieldset->addField("code", "text", array(
                         "label" => Mage::helper("wizard")->__("Code"),
                         "name" => "code",
                         ));
-                        */
+                        
 
 
                         $fieldset->addField('image', 'image', array(
@@ -44,7 +44,7 @@ class Trio_Wizard_Block_Adminhtml_Wizard_Edit_Tab_Form extends Mage_Adminhtml_Bl
                         'name' => 'image',
                         'note' => '(*.jpg, *.png, *.gif)',
                         ));
-                                               
+                        
                         
                         $fieldset->addField('scope', 'text', array(
                                 'name'=>'scope',
@@ -55,7 +55,8 @@ class Trio_Wizard_Block_Adminhtml_Wizard_Edit_Tab_Form extends Mage_Adminhtml_Bl
                         $form->getElement('scope')->setRenderer(
                             $this->getLayout()->createBlock('adminhtml/trio_wizard_tab_scope')->assign('data', $data)
                         );
-                        Mage::log('Trio_Wizard_Block_Adminhtml_Wizard_Edit_Tab_Form   -> _prepareForm 1111111 /n');
+                        
+                        //Mage::log('Trio_Wizard_Block_Adminhtml_Wizard_Edit_Tab_Form   -> _prepareForm 1111111 /n');
                         /*
                         $fieldset->addType('scope_type', Mage::getConfig()->getBlockClassName('adminhtml/trio_wizard_tab_scope'));
                         //$fieldset->addType('multiselect_enabled', Mage::getConfig()->getBlockClassName('adminhtml/catalog_product_helper_form_scope'));
