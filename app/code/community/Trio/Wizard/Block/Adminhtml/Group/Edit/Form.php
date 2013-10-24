@@ -4,7 +4,7 @@
  * @package		Wizard
  */
 
-class Trio_Wizard_Block_Adminhtml_Wizard_Edit_Form extends Mage_Adminhtml_Block_Widget_Form {
+class Trio_Wizard_Block_Adminhtml_Group_Edit_Form extends Mage_Adminhtml_Block_Widget_Form {
 
 	protected function _prepareForm() {
 
@@ -19,7 +19,8 @@ class Trio_Wizard_Block_Adminhtml_Wizard_Edit_Form extends Mage_Adminhtml_Block_
 
 		$form->setUseContainer(true);
 		$this->setForm($form);
-
+		
 		return parent::_prepareForm();
+
 	}
 }

@@ -1,44 +1,43 @@
 <?php
-	
-class Trio_Wizard_Block_Adminhtml_Wizard_Edit extends Mage_Adminhtml_Block_Widget_Form_Container
-{
-		public function __construct()
-		{
+/**
+ * @category	Trio
+ * @package		wizard
+ */
 
-				parent::__construct();
-				$this->_objectId = "wizard_id";
-				$this->_blockGroup = "wizard";
-				$this->_controller = "adminhtml_wizard";
-				$this->_updateButton("save", "label", Mage::helper("wizard")->__("Save Item"));
-				$this->_updateButton("delete", "label", Mage::helper("wizard")->__("Delete Item"));
+class Trio_Wizard_Block_Adminhtml_Wizard_Edit  extends Mage_Adminhtml_Block_Widget_Form_Container {
 
-				$this->_addButton("saveandcontinue", array(
-					"label"     => Mage::helper("wizard")->__("Save And Continue Edit"),
-					"onclick"   => "saveAndContinueEdit()",
-					"class"     => "save",
-				), -100);
+	public function __construct() {
+		parent::__construct();
 
+		$this->_objectId	= 'id';
+		$this->_controller	= 'adminhtml_wizard';
+		$this->_blockGroup	= 'wizard';
 
+		$this->_addButton('saveandcontinue', array(
+			'label'		=> Mage::helper('adminhtml')->__('Save And Continue Edit'),
+			'onclick'	=> 'saveAndContinueEdit()',
+			'class'		=> 'save',
+		), -100);
 
-				$this->_formScripts[] = "
+		$this->_formScripts[] = "
+			function saveAndContinueEdit(){
+				editForm.submit($('edit_form').action+'back/edit/');
+			}
+		";
+	}
 
-							function saveAndContinueEdit(){
-								editForm.submit($('edit_form').action+'back/edit/');
-							}
-						";
+	public function getHeaderText() {
+		if(Mage::registry('wizard_wizard')) {
+			return Mage::helper('wizard')->__("Edit Wizard '%s'", $this->htmlEscape(Mage::registry('wizard_wizard')->getTitle()));
+		} else {
+			return Mage::helper('wizard')->__("Add Wizard");
 		}
+	}
 
-		public function getHeaderText()
-		{
-				if( Mage::registry("wizard_data") && Mage::registry("wizard_data")->getId() ){
-
-				    return Mage::helper("wizard")->__("Edit Item '%s'", $this->htmlEscape(Mage::registry("wizard_data")->getId()));
-
-				} 
-				else{
-
-				     return Mage::helper("wizard")->__("Add Item");
-
-				}
+	protected function _prepareLayout() {
+		parent::_prepareLayout();
+		if (Mage::getSingleton('cms/wysiwyg_config')->isEnabled()) {
+			$this->getLayout()->getBlock('head')->setCanLoadTinyMce(true);
 		}
+	}
 }

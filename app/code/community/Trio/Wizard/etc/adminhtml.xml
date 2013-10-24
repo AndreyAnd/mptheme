@@ -1,0 +1,80 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category    Trio
+ * @package     Wizard
+ */
+-->
+<config>
+	<menu>
+            <trio translate="title" module="trio">
+                <title>Trio</title>
+                <sort_order>50</sort_order>
+                <children>
+                    <wizard translate="title" module="wizard">
+                            <title>Wizard</title>
+                            <sort_order>100</sort_order>
+                            <children>
+                                    <group>
+                                            <title>Manage Groups</title>
+                                            <sort_order>60</sort_order>
+                                            <action>wizard_admin/adminhtml_group</action>
+                                    </group>
+                                    <wizard>
+                                            <title>Manage Wizard</title>
+                                            <sort_order>70</sort_order>
+                                            <action>wizard_admin/adminhtml_wizard</action>
+                                    </wizard>
+                                    <settings>
+                                            <title>Settings</title>
+                                            <sort_order>80</sort_order>
+                                            <action>adminhtml/system_config/edit/section/wizard</action>
+                                    </settings>
+                            </children>
+                    </wizard>
+                </children>
+            </trio>
+	</menu>
+	<acl>
+            <resources>
+                    <admin>
+                        <children>
+                            <trio>
+                                <children>
+                                    <wizard translate="title" module="wizard">
+                                        <title>Wizard</title>
+                                        <sort_order>50</sort_order>
+                                        <children>
+                                            <group translate="title">
+                                                    <title>Manage Groups</title>
+                                                    <sort_order>60</sort_order>
+                                            </group>
+                                            <wizard translate="title">
+                                                    <title>Manage Wizards</title>
+                                                    <sort_order>70</sort_order>
+                                            </wizard>
+                                            <settings translate="title">
+                                                    <title>Settings</title>
+                                                    <sort_order>80</sort_order>
+                                            </settings>
+                                        </children>
+                                    </wizard>
+                                </children>
+                            </trio>
+                            <system>
+                                <children>
+                                    <config>
+                                        <children>
+                                            <wizard translate="title" module="wizard">
+                                                    <title>Wizard</title>
+                                                    <sort_order>500</sort_order>
+                                            </wizard>
+                                        </children>
+                                    </config>
+                                </children>
+                            </system>
+                        </children>
+                    </admin>
+            </resources>
+	</acl>
+</config>

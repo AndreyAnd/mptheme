@@ -1,0 +1,132 @@
+﻿
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+# On branch master
+# Changes to be committed:
+#   (use "git reset HEAD <file>..." to unstage)
+#
+#	renamed:    app/code/community/Trio/Wizard__/Block/Adminhtml/Group/Edit/Tab/Slides.php -> app/code/community/Trio/Wizard__/Block/Adminhtml/Group/Edit/Tab/Wizards.php
+#	renamed:    app/code/community/Trio/Wizard__/Block/Adminhtml/Slide.php -> app/code/community/Trio/Wizard__/Block/Adminhtml/Wizard.php
+#	renamed:    app/code/community/Trio/Wizard__/Block/Adminhtml/Slide/Edit.php -> app/code/community/Trio/Wizard__/Block/Adminhtml/Wizard/Edit.php
+#	renamed:    app/code/community/Trio/Wizard__/Block/Adminhtml/Slide/Edit/Form.php -> app/code/community/Trio/Wizard__/Block/Adminhtml/Wizard/Edit/Form.php
+#	new file:   app/code/community/Trio/Wizard__/Block/Adminhtml/Wizard/Edit/Tab/Categories.php
+#	renamed:    app/code/community/Trio/Wizard__/Block/Adminhtml/Slide/Edit/Tab/Form.php -> app/code/community/Trio/Wizard__/Block/Adminhtml/Wizard/Edit/Tab/Form.php
+#	new file:   app/code/community/Trio/Wizard__/Block/Adminhtml/Wizard/Edit/Tab/Scope.php
+#	new file:   app/code/community/Trio/Wizard__/Block/Adminhtml/Wizard/Edit/Tab/Scope/Abstract.php
+#	new file:   app/code/community/Trio/Wizard__/Block/Adminhtml/Wizard/Edit/Tab/Scope/Allow.php
+#	new file:   app/code/community/Trio/Wizard__/Block/Adminhtml/Wizard/Edit/Tab/Scopetype.php
+#	renamed:    app/code/community/Trio/Wizard__/Block/Adminhtml/Slide/Edit/Tabs.php -> app/code/community/Trio/Wizard__/Block/Adminhtml/Wizard/Edit/Tabs.php
+#	renamed:    app/code/community/Trio/Wizard__/Block/Adminhtml/Slide/Grid.php -> app/code/community/Trio/Wizard__/Block/Adminhtml/Wizard/Grid.php
+#	renamed:    app/code/community/Trio/Wizard__/Block/Adminhtml/Slide/Helper/Image.php -> app/code/community/Trio/Wizard__/Block/Adminhtml/Wizard/Helper/Image.php
+#	new file:   app/code/community/Trio/Wizard__/Block/Adminhtml/Wizardbackend.php
+#	new file:   app/code/community/Trio/Wizard__/Block/Index.php
+#	new file:   app/code/community/Trio/Wizard__/Block/Wizard.php
+#	renamed:    app/code/community/Trio/Wizard__/Model/Mysql4/Slide.php -> app/code/community/Trio/Wizard__/Model/Mysql4/Wizard.php
+#	renamed:    app/code/community/Trio/Wizard__/Model/Mysql4/Slide/Collection.php -> app/code/community/Trio/Wizard__/Model/Mysql4/Wizard/Collection.php
+#	renamed:    app/code/community/Trio/Wizard__/Model/Slide.php -> app/code/community/Trio/Wizard__/Model/Wizard.php
+#	renamed:    app/code/community/Trio/Wizard__/controllers/Adminhtml/SlideController.php -> app/code/community/Trio/Wizard__/controllers/Adminhtml/WizardController.php
+#	deleted:    app/code/community/Trio/Wizard__/sql/flexslider_setup/mysql4-upgrade-1.0.0-1.1.0.php
+#	deleted:    app/code/community/Trio/Wizard__/sql/flexslider_setup/mysql4-upgrade-1.1.1-1.2.0.php
+#	renamed:    app/code/community/Trio/Wizard__/sql/flexslider_setup/mysql4-install-1.0.0.php -> app/code/community/Trio/Wizard__/sql/wizard_setup/mysql4-install-1.0.0.php
+#
+# Changes not staged for commit:
+#   (use "git add/rm <file>..." to update what will be committed)
+#   (use "git checkout -- <file>..." to discard changes in working directory)
+#
+#	modified:   app/code/community/Trio/Wizard/Block/Adminhtml/Wizard.php
+#	modified:   app/code/community/Trio/Wizard/Block/Adminhtml/Wizard/Edit.php
+#	modified:   app/code/community/Trio/Wizard/Block/Adminhtml/Wizard/Edit/Form.php
+#	modified:   app/code/community/Trio/Wizard/Block/Adminhtml/Wizard/Edit/Tab/Form.php
+#	modified:   app/code/community/Trio/Wizard/Block/Adminhtml/Wizard/Edit/Tabs.php
+#	modified:   app/code/community/Trio/Wizard/Block/Adminhtml/Wizard/Grid.php
+#	modified:   app/code/community/Trio/Wizard/Helper/Data.php
+#	modified:   app/code/community/Trio/Wizard/Model/Mysql4/Wizard.php
+#	modified:   app/code/community/Trio/Wizard/Model/Mysql4/Wizard/Collection.php
+#	modified:   app/code/community/Trio/Wizard/Model/Wizard.php
+#	modified:   app/code/community/Trio/Wizard/controllers/Adminhtml/WizardController.php
+#	deleted:    app/code/community/Trio/Wizard/controllers/Adminhtml/WizardbackendController.php
+#	deleted:    app/code/community/Trio/Wizard/controllers/IndexController.php
+#	deleted:    app/code/community/Trio/Wizard/controllers/WizardController.php
+#	modified:   app/code/community/Trio/Wizard/etc/config.xml
+#	deleted:    app/code/community/Trio/Wizard/sql/wizard_setup/mysql4-install-0.1.0.php
+#	deleted:    app/code/community/Trio/Wizard__/Block/Adminhtml/Group.php
+#	deleted:    app/code/community/Trio/Wizard__/Block/Adminhtml/Group/Edit.php
+#	deleted:    app/code/community/Trio/Wizard__/Block/Adminhtml/Group/Edit/Form.php
+#	deleted:    app/code/community/Trio/Wizard__/Block/Adminhtml/Group/Edit/Tab/Category.php
+#	deleted:    app/code/community/Trio/Wizard__/Block/Adminhtml/Group/Edit/Tab/Form.php
+#	deleted:    app/code/community/Trio/Wizard__/Block/Adminhtml/Group/Edit/Tab/Page.php
+#	deleted:    app/code/community/Trio/Wizard__/Block/Adminhtml/Group/Edit/Tab/Wizards.php
+#	deleted:    app/code/community/Trio/Wizard__/Block/Adminhtml/Group/Edit/Tab/XML.php
+#	deleted:    app/code/community/Trio/Wizard__/Block/Adminhtml/Group/Edit/Tabs.php
+#	deleted:    app/code/community/Trio/Wizard__/Block/Adminhtml/Group/Grid.php
+#	deleted:    app/code/community/Trio/Wizard__/Block/Adminhtml/Wizard.php
+#	deleted:    app/code/community/Trio/Wizard__/Block/Adminhtml/Wizard/Edit.php
+#	deleted:    app/code/community/Trio/Wizard__/Block/Adminhtml/Wizard/Edit/Form.php
+#	deleted:    app/code/community/Trio/Wizard__/Block/Adminhtml/Wizard/Edit/Tab/Categories.php
+#	deleted:    app/code/community/Trio/Wizard__/Block/Adminhtml/Wizard/Edit/Tab/Form.php
+#	deleted:    app/code/community/Trio/Wizard__/Block/Adminhtml/Wizard/Edit/Tab/Scope.php
+#	deleted:    app/code/community/Trio/Wizard__/Block/Adminhtml/Wizard/Edit/Tab/Scope/Abstract.php
+#	deleted:    app/code/community/Trio/Wizard__/Block/Adminhtml/Wizard/Edit/Tab/Scope/Allow.php
+#	deleted:    app/code/community/Trio/Wizard__/Block/Adminhtml/Wizard/Edit/Tab/Scopetype.php
+#	deleted:    app/code/community/Trio/Wizard__/Block/Adminhtml/Wizard/Edit/Tabs.php
+#	deleted:    app/code/community/Trio/Wizard__/Block/Adminhtml/Wizard/Grid.php
+#	deleted:    app/code/community/Trio/Wizard__/Block/Adminhtml/Wizard/Helper/Image.php
+#	deleted:    app/code/community/Trio/Wizard__/Block/Adminhtml/Wizardbackend.php
+#	deleted:    app/code/community/Trio/Wizard__/Block/Content/Bottom.php
+#	deleted:    app/code/community/Trio/Wizard__/Block/Content/Top.php
+#	deleted:    app/code/community/Trio/Wizard__/Block/Index.php
+#	deleted:    app/code/community/Trio/Wizard__/Block/Page/Html/Head.php
+#	deleted:    app/code/community/Trio/Wizard__/Block/View.php
+#	deleted:    app/code/community/Trio/Wizard__/Block/Wizard.php
+#	deleted:    app/code/community/Trio/Wizard__/Helper/Data.php
+#	deleted:    app/code/community/Trio/Wizard__/Helper/Image.php
+#	deleted:    app/code/community/Trio/Wizard__/Model/Config/Source/Animation.php
+#	deleted:    app/code/community/Trio/Wizard__/Model/Config/Source/Direction.php
+#	deleted:    app/code/community/Trio/Wizard__/Model/Config/Source/Jquery.php
+#	deleted:    app/code/community/Trio/Wizard__/Model/Config/Source/Navposition.php
+#	deleted:    app/code/community/Trio/Wizard__/Model/Config/Source/Navshow.php
+#	deleted:    app/code/community/Trio/Wizard__/Model/Config/Source/Navstyle.php
+#	deleted:    app/code/community/Trio/Wizard__/Model/Config/Source/Page.php
+#	deleted:    app/code/community/Trio/Wizard__/Model/Config/Source/Pagination.php
+#	deleted:    app/code/community/Trio/Wizard__/Model/Config/Source/Paginationposition.php
+#	deleted:    app/code/community/Trio/Wizard__/Model/Config/Source/Paginationshow.php
+#	deleted:    app/code/community/Trio/Wizard__/Model/Config/Source/Position.php
+#	deleted:    app/code/community/Trio/Wizard__/Model/Config/Source/Theme.php
+#	deleted:    app/code/community/Trio/Wizard__/Model/Config/Source/Type.php
+#	deleted:    app/code/community/Trio/Wizard__/Model/Config/Source/URLTarget.php
+#	deleted:    app/code/community/Trio/Wizard__/Model/Group.php
+#	deleted:    app/code/community/Trio/Wizard__/Model/Layout/Generate/Observer.php
+#	deleted:    app/code/community/Trio/Wizard__/Model/Layout/Generate/__Observer.php
+#	deleted:    app/code/community/Trio/Wizard__/Model/Mysql4/Group.php
+#	deleted:    app/code/community/Trio/Wizard__/Model/Mysql4/Group/Collection.php
+#	deleted:    app/code/community/Trio/Wizard__/Model/Mysql4/Wizard.php
+#	deleted:    app/code/community/Trio/Wizard__/Model/Mysql4/Wizard/Collection.php
+#	deleted:    app/code/community/Trio/Wizard__/Model/Wizard.php
+#	deleted:    app/code/community/Trio/Wizard__/controllers/Adminhtml/GroupController.php
+#	deleted:    app/code/community/Trio/Wizard__/controllers/Adminhtml/WizardController.php
+#	deleted:    app/code/community/Trio/Wizard__/etc/adminhtml.xml
+#	deleted:    app/code/community/Trio/Wizard__/etc/config.xml
+#	deleted:    app/code/community/Trio/Wizard__/etc/system.xml
+#	deleted:    app/code/community/Trio/Wizard__/sql/wizard_setup/mysql4-install-1.0.0.php
+#
+# Untracked files:
+#   (use "git add <file>..." to include in what will be committed)
+#
+#	app/code/community/Trio/Wizard/Block/Adminhtml/Group.php
+#	app/code/community/Trio/Wizard/Block/Adminhtml/Group/
+#	app/code/community/Trio/Wizard/Block/Adminhtml/Wizard/Helper/
+#	app/code/community/Trio/Wizard/Block/Content/
+#	app/code/community/Trio/Wizard/Block/Page/
+#	app/code/community/Trio/Wizard/Block/View.php
+#	app/code/community/Trio/Wizard/Helper/Image.php
+#	app/code/community/Trio/Wizard/Model/Config/
+#	app/code/community/Trio/Wizard/Model/Group.php
+#	app/code/community/Trio/Wizard/Model/Layout/
+#	app/code/community/Trio/Wizard/Model/Mysql4/Group.php
+#	app/code/community/Trio/Wizard/Model/Mysql4/Group/
+#	app/code/community/Trio/Wizard/controllers/Adminhtml/GroupController.php
+#	app/code/community/Trio/Wizard/etc/adminhtml.xml
+#	app/code/community/Trio/Wizard/etc/system.xml
+#	app/code/community/Trio/Wizard/sql/wizard_setup/mysql4-install-1.0.0.php
+#	app/code/community/Trio/Wizard_1/
+
