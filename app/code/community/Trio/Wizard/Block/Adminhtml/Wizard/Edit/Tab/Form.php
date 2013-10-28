@@ -19,7 +19,7 @@ class Trio_Wizard_Block_Adminhtml_Wizard_Edit_Tab_Form extends Mage_Adminhtml_Bl
 
 	protected function _prepareForm() {
 		$form = new Varien_Data_Form();
-
+                
 		$form->setHtmlIdPrefix('wizard_');
 		$form->setFieldNameSuffix('wizard');
 
@@ -45,35 +45,24 @@ class Trio_Wizard_Block_Adminhtml_Wizard_Edit_Tab_Form extends Mage_Adminhtml_Bl
 			'required'	=> true,
 			'class'		=> 'required-entry'
 		));
-                    /*
-		$hosted_image = $fieldset->addField('hosted_image', 'select', array(
-			'name'		=> 'hosted_image',
-			'label'		=> Mage::helper('wizard')->__('Use External Image Hosting'),
-			'note'		=> Mage::helper('wizard')->__('instead of uploading images you can host your images on a image hoster and just enter the link to the image and thumbnail'),
+                //$_model = Mage::registry('group_data');
+                $code = $fieldset->addField('code', 'select', array(
+			'name'		=> 'code',
+			'label'		=> Mage::helper('wizard')->__('Code'),
+			'note'		=> Mage::helper('wizard')->__('a unique identifier attribute'),
 			'required'	=> true,
-			'disabled' 	=> $this->_addOrEdit(),
-			'values'	=> Mage::getSingleton('adminhtml/system_config_source_yesno')->toOptionArray(),
+			'values'	=> $this->getAttributes(),
+                        //'value'		=> $_model->getCode()
 		));
-
-		$hosted_image_url = $fieldset->addField('hosted_image_url', 'text', array(
-			'name'		=> 'hosted_image_url',
-			'label'		=> $this->__('Hosted Image URL'),
-			'title'		=> $this->__('Hosted Image URL')
-		));
-
-		$hosted_image_thumburl = $fieldset->addField('hosted_image_thumburl', 'text', array(
-			'name'		=> 'hosted_image_thumburl',
-			'label'		=> $this->__('Hosted Image Thumb URL'),
-			'title'		=> $this->__('Hosted Image Thumb URL'),
-			'note'		=> Mage::helper('wizard')->__('you can use the same URL as above but for performance reasons it\'s better to upload a seperate small thumbnail of this image, the thumbnails are used in carousels'),
-		));
-                */
+                                
+                 
 		$image = $fieldset->addField('image', 'image', array(
 			'name'		=> 'image',
 			'label'		=> $this->__('Image'),
 			'title'		=> $this->__('Image'),
 			'required'	=> false
 		));
+               
                 /*
 		$alt_text = $fieldset->addField('alt_text', 'text', array(
 			'name'		=> 'alt_text',
@@ -196,6 +185,25 @@ class Trio_Wizard_Block_Adminhtml_Wizard_Edit_Tab_Form extends Mage_Adminhtml_Bl
 
 		return $options;
 	}
+        
+        public function getAttributes()
+        {
+            $config    = Mage::getModel('eav/config');
+            $storeId=Mage::app()->getStore(true)->getId();
+            $attribute = $config->getAttribute(Mage_Catalog_Model_Product::ENTITY, 'wizard_attributes');
+            $options = Mage::getResourceModel('eav/entity_attribute_option_collection');
+            $values  = $options->setAttributeFilter($attribute->getId())->setStoreFilter($storeId)->toOptionArray();
+            //$values=Array ( [0] => Array ( [value] => 4 [label] => color ) [1] => Array ( [value] => 5 [label] => price ) [2] => Array ( [value] => 3 [label] => wizard_attributes ) ) 
+            $arr=array();
+            foreach($values as $val)
+            {
+               //$arr[$val["value"]] = $val["label"];
+               $arr[$val["label"]] = $val["label"]; 
+            }
+            //print_r( Mage::getSingleton('adminhtml/system_config_source_yesno')->toOptionArray() );
+            //print_r($values);die();
+            return $arr;  
+        }
 
 	/**
 	 * Check if we are adding or editing

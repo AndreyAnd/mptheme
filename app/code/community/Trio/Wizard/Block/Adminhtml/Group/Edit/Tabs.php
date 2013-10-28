@@ -39,12 +39,12 @@ class Trio_Wizard_Block_Adminhtml_Group_Edit_Tabs extends Mage_Adminhtml_Block_W
 				'title'		=> Mage::helper('wizard')->__('Wizards of this Group'),
 				'content'	=> $this->getLayout()->createBlock('wizard/adminhtml_group_edit_tab_wizards')->toHtml(),
 			));
-                       /*
+                       
                        $this->addTab('xml_section', array(
 				'label'		=> Mage::helper('wizard')->__('Use Code Inserts'),
 				'title'		=> Mage::helper('wizard')->__('Use Code Inserts'),
 				'content'	=> $this->getLayout()->createBlock('wizard/adminhtml_group_edit_tab_XML')->toHtml(),
-			));*/
+			));
 		}
 		
 

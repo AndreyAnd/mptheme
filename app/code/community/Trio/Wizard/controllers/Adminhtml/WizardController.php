@@ -60,18 +60,25 @@ class Trio_Wizard_Adminhtml_WizardController extends Mage_Adminhtml_Controller_A
 	 */
 	public function saveAction() {
 		if ($data = $this->getRequest()->getPost('wizard')) {
+                        
 			$wizard = Mage::getModel('wizard/wizard')
 				->setData($data)
 				->setId($this->getRequest()->getParam('id'));
-
-			try {
-				
+			
 				$hostedImage = $data['hosted_image_url'];
 				
-				if(empty($hostedImage)){
-					$this->_handleImageUpload($wizard);
+				if(empty($hostedImage))
+                                {     
+                                    $field='scope';
+                                    $this->_handleScopeImageUpload($wizard);
+                                    
+                                    $this->_handleImageUpload($wizard,'html');
+                                    $this->_handleImageUpload($wizard);
 				}
-				
+                        try {        
+                               $scope_string= json_encode($wizard->getData('scope'));//array to json string
+                               $wizard->setData('scope',$scope_string);
+				//echo'<pr>';print_r($wizard->getData());print_r($scope_string);die ('saveAction');
 				$wizard->save();
 				$this->_getSession()->addSuccess($this->__('wizard was saved'));
 			}
@@ -91,6 +98,48 @@ class Trio_Wizard_Adminhtml_WizardController extends Mage_Adminhtml_Controller_A
 		
 		$this->_redirect('*/*');
 	}
+        
+        /**
+	 * Upload an image and assign it to the model
+	 *
+	 * @param Trio_Wizard_Model_Wizard $wizard
+	 * @param string $field = 'image'
+	 */
+        protected function _handleScopeImageUpload(Trio_Wizard_Model_Wizard $wizard, $field = 'scope') 
+        {		
+                //var_dump($wizard);die ('_handleScopeImageUpload 1');
+                $scope=$wizard->getData($field);
+                foreach ($scope as  $key => $value)
+                {   
+                    $im_id='wizard_'.$key;
+                    $name=$key;
+                    $image=$wizard[$key];
+                                           
+                    if ($filename = Mage::helper('wizard/image')->uploadImage($name)) 
+                        { 
+                            $scope[$key]["image"] = $filename; 
+                            //var_dump($filename); die ('_handleScopeImageUpload 2-1');                       
+                        }
+                    elseif  (isset($image['value'])&& $image['value']!='') 
+                        { 
+                            $scope[$key]["image"] =$image['value'];
+                            // var_dump($image['value']); die ('_handleScopeImageUpload 2-2');
+                         }
+                    elseif  (isset($image['value'])&& $image['value']=='') 
+                        { 
+                            $scope[$key]["image"] =null;
+                             //var_dump($image['value']); die ('_handleScopeImageUpload 2-3');
+                         }
+                    
+                    if (isset($image['delete']) && $image['delete'] == '1') { $scope[$key]["image"] =''; }
+                    
+                    //print_r($data_arr);die ('_handleScopeImageUpload 2');
+                    
+                }
+                $wizard->setData($field,$scope);
+                
+                //var_dump($wizard->getData($field));die ('_handleScopeImageUpload 3');
+	}
 
 	/**
 	 * Upload an image and assign it to the model
@@ -100,7 +149,7 @@ class Trio_Wizard_Adminhtml_WizardController extends Mage_Adminhtml_Controller_A
 	 */
 	protected function _handleImageUpload(Trio_Wizard_Model_Wizard $wizard, $field = 'image') {
 		$data = $wizard->getData($field);
-
+                         
 		if (isset($data['value'])) {
 			$wizard->setData($field, $data['value']);
 		}

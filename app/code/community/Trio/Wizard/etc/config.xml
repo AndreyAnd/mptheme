@@ -104,13 +104,13 @@
 			</updates>
 		</layout>
 		<translate>
-            <modules>
-                <Trio_Wizard>
-                    <files>
-                        <default>Trio_Wizard.csv</default>
-                    </files>
-                </Trio_Wizard>
-            </modules>
+                    <modules>
+                        <Trio_Wizard>
+                            <files>
+                                <default>Trio_Wizard.csv</default>
+                            </files>
+                        </Trio_Wizard>
+                    </modules>
         </translate>
 	</frontend>
 	<admin>
@@ -133,14 +133,14 @@
 			</updates>
 		</layout>
 		<translate>
-            <modules>
-                <Trio_Wizard>
-                    <files>
-                        <default>Trio_Wizard.csv</default>
-                    </files>
-                </Trio_Wizard>
-            </modules>
-        </translate>
+                    <modules>
+                        <Trio_Wizard>
+                            <files>
+                                <default>Trio_Wizard.csv</default>
+                            </files>
+                        </Trio_Wizard>
+                    </modules>
+                </translate>
 	</adminhtml>
     <default>
         <wizard>
