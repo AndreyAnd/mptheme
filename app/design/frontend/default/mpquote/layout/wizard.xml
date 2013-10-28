@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<layout>
+<!--
+/**
+ * @category	Trio
+ * @package	Wizard
+ */
+-->
+    <default>
+        <reference name="root">
+            <block type="wizard/page_html_head" name="wizard_head" as="wizard_head"/>
+        </reference>
+    </default>
+    <cms_page>
+        <reference name="content">
+            <block type="wizard/content_top" name="wizard_content_top" template="wizard/template.phtml" before="-"/>
+            <!--block type="wizard/content_bottom" name="wizard_content_bottom" template="wizard/template.phtml" after="-"/-->
+        </reference>
+    </cms_page>
+    <catalog_category_default>
+        <reference name="content">
+            <block type="wizard/content_top" name="wizard_content_top" template="wizard/template.phtml" before="-"/>
+            <!--block type="wizard/content_bottom" name="wizard_content_bottom" template="wizard/template.phtml" after="-"/-->
+        </reference>
+    </catalog_category_default>
+    <catalog_category_layered>
+        <reference name="content">
+            <block type="wizard/content_top" name="wizard_content_top" template="wizard/template.phtml" before="-"/>
+            <!--block type="wizard/content_bottom" name="wizard_content_bottom" template="wizard/template.phtml" after="-"/-->
+        </reference>
+    </catalog_category_layered>
+</layout>

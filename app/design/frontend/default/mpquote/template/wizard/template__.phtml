@@ -1,0 +1,123 @@
+<?php
+/**
+ * @category	Trio
+ * @package	Wizard
+ */
+//Trio_Wizard_Block_View
+?>
+
+<?php if ($this->hasValidGroup()):
+    $group_collection = $this->_getCollection();
+
+    foreach ($group_collection as $group):
+        $slides = $this->getWizards($group['group_id']);
+        if (count($slides) > 0):
+                if($group['width']) { ?>
+                        <div class="wizard-width" style="max-width: <?php echo $group['width'] ?>px !important">
+                <?php } ?>
+                        <?php if($group['nav_position']=='outside') { ?>
+                                <div id="<?php echo $group['code'] ?>-nav-container">
+                        <?php } ?>
+
+                                <div class="sw-wizard-element <?php echo $group['code'] ?>-container">
+
+                                <?php if($group['type']!='carousel') { ?>
+                                        <div class="sw-wizard-container">
+                                                <div id="fwizard-<?php echo $group['code'] ?>" class="sw-wizard wizard-<?php echo $group['code'] ?>">
+                                                          <ul class="slides">
+                                                                  <?php foreach($slides as $slide): ?>
+                                                                        <li>
+                                                                                <?php if($slide->hasUrl()) { ?>
+                                                                                        <a href="<?php echo $slide->getUrl() ?>" title="<?php echo $this->escapeHtml($slide->getTitle()) ?>" target="<?php echo $this->escapeHtml($slide->getUrlTarget()) ?>">
+                                                                                <?php } ?>
+                                                                                        <?php if($slide->getImageUrl()) { ?>
+                                                                                                <img src="<?php echo $slide->getImageUrl() ?>" alt="<?php echo $this->escapeHtml($slide->getAltText()) ?>" />
+                                                                                        <?php } ?>
+                                                                                <?php if($slide->hasUrl()) { ?>
+                                                                                        </a>
+                                                                                <?php } ?>
+                                                                                <?php if($slide->getHtml()) { ?><span class="wizard-title"><?php echo $slide->getHtml() ?></span><?php } ?>
+                                                                        </li>
+                                                                  <?php endforeach ?>
+                                                          </ul>
+                                                </div>
+                                        </div>
+                                <?php } ?>
+
+                                <?php if($group['type']!='basic') { ?>
+                                        <div class="sw-wizard-container">
+                                                <div id="carousel-<?php echo $group['code'] ?>" class="sw-wizard carousel wizard-<?php echo $group['code'] ?>">
+                                                          <ul class="slides">
+                                                                  <?php foreach($slides as $slide): ?>
+                                                                        <li>
+                                                                                <?php if($slide->hasUrl() && $group['type']=='carousel') { ?>
+                                                                                        <a href="<?php echo $slide->getUrl() ?>" title="<?php echo $this->escapeHtml($slide->getTitle()) ?>" target="<?php echo $this->escapeHtml($slide->getUrlTarget()) ?>">
+                                                                                <?php } ?>
+                                                                                                <?php if($slide->getThumbUrl()) { ?>
+                                                                                                        <img src="<?php echo $slide->getThumbUrl() ?>" alt="<?php echo $this->escapeHtml($slide->getAltText()) ?>" />
+                                                                                                <?php } ?>
+                                                                                <?php if($slide->hasUrl() && $group['type']=='carousel') { ?>
+                                                                                        </a>
+                                                                                <?php } ?>
+                                                                        </li>
+                                                                  <?php endforeach ?>
+                                                          </ul>
+                                                </div>
+                                        </div>
+                                <?php } ?>
+
+                                </div>
+
+                        <?php if($group['nav_position']=='outside') { ?>
+                                </div>
+                        <?php } ?>
+
+                        <?php if($group['type']!='basic') { ?>
+                                <script type="text/javascript">
+                                        solide(window).load(function() {
+                                                solide('#carousel-<?php echo $group['code'] ?>').wizard({
+                                                        namespace: "sw-wizard-",
+                                                        animation: "slide",
+                                                        animationLoop: false,
+                                                        itemWidth: <?php echo $group['thumbnail_size'] ?>,
+                                                        itemMargin: 5,
+                                                        <?php if($group['type']=='basic-carousel') { ?>
+                                                                slideshow: false,
+                                                                controlNav: false,
+                                                                asNavFor: '#wizard-<?php echo $group["code"] ?>'
+                                                        <?php } ?>
+                                                });
+                                        });
+                                </script>
+                        <?php } ?>
+
+                <script type="text/javascript">
+                        solide(window).load(function() {
+                                solide('#wizard-<?php echo $group['code'] ?>').wizard({
+                                        namespace: "sw-wizard-",
+                                        directionNav: <?php if($group['nav_show']=='no') { echo 'false'; } else { echo 'true'; } ?>,
+                                        controlNav: <?php if($group['pagination_show']=='no' || $group['type']=='carousel' || $group['type']=='basic-carousel') { echo 'false'; } else { echo 'true'; } ?>,
+                                        slideshow: <?php if($group['wizard_auto']==0) { echo 'false'; } else { echo 'true'; } ?>,
+                                        pauseOnAction: <?php if($group['wizard_pauseonaction']==0) { echo 'false'; } else { echo 'true'; } ?>,
+                                        pauseOnHover: <?php if($group['wizard_pauseonhover']==0) { echo 'false'; } else { echo 'true'; } ?>,
+                                        animation: "<?php echo $group['wizard_animation'] ?>",
+                                        animationSpeed: <?php echo $group['wizard_aniduration'] ?>,
+                                        direction: "<?php echo $group['wizard_direction'] ?>",
+                                        slideshowSpeed: <?php echo $group['wizard_slideduration'] ?>,
+                                        randomize: <?php if($group['wizard_random']==0) { echo 'false'; } else { echo 'true'; } ?>,
+                                        smoothHeight: <?php if($group['wizard_smoothheight']==0) { echo 'false'; } else { echo 'true'; } ?>,
+                                        controlsContainer: ".flex-nav-container",
+                                        <?php if($group['type']=='basic-carousel') { ?>
+                                                sync: '#carousel-<?php echo $group['code'] ?>'
+                                        <?php } ?>
+                                });
+                        });
+                </script>
+
+            <?php if($group['width']) { ?>
+                    </div>
+            <?php }
+        endif;
+    endforeach;
+endif;
+?>
