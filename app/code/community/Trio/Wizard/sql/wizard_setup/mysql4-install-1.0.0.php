@@ -1,7 +1,7 @@
 <?php
 /**
- * @category	Trio
- * @package		Wizard
+ * @package	Wizard
+ * @author     callmeandrey@gmail.com
  */
 
 $installer = $this;
@@ -16,32 +16,11 @@ $installer->run("
 		`title` varchar(255) NOT NULL default '',
 		`code` varchar(32) NOT NULL default '',
 		`position` varchar(128) NOT NULL default '',
-		`width` smallint(4) default NULL,
 		`sort_order` smallint(5) NULL default 0,
 		`is_active` tinyint(1) NOT NULL default 1,
-                `type` varchar(32) NOT NULL default 'basic',
-                `thumbnail_size` smallint(5) NOT NULL default '200',
-                `theme`  varchar(32) NOT NULL default 'default',                
-                `nav_show`  varchar(32) NOT NULL default '',
-                `nav_style`  varchar(32) NOT NULL default '',
-                `nav_position`  varchar(32) NOT NULL default '',
-                `nav_color` varchar(7) NOT NULL default '#666666',
-                `pagination_show`  varchar(32) NOT NULL default '',
-                `pagination_style`  varchar(32) NOT NULL default '',
-                `pagination_position`   varchar(32) NOT NULL default '',
-                `hosted_image`  tinyint(1) NOT NULL default 0,
-                `hosted_image_url` varchar(512) NOT NULL default '',
-                `hosted_image_thumburl`  varchar(512) NOT NULL default '',
-                `wizard_pauseonaction`  tinyint(1) NOT NULL default 1 ,
-                `wizard_pauseonhover` tinyint(1) NOT NULL default 0,
-		`wizard_auto` tinyint(1) NOT NULL default 1,
-		`wizard_animation`  varchar(32) NOT NULL default '',
-		`wizard_aniduration` smallint(5) NOT NULL default '600',
-		`wizard_direction`  varchar(32) NOT NULL default '',
-		`wizard_directionnav` tinyint(1) NOT NULL default 1,
-		`wizard_wizardduration` smallint(5) NOT NULL default '7000',
-		`wizard_random` tinyint(1) NOT NULL default 0,
-		`wizard_smoothheight` tinyint(1) NOT NULL default 1,
+                `type` varchar(32) NOT NULL default 'basic',                
+                
+                
 		PRIMARY KEY (`group_id`)
 	) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Wizard Groups';
 	
@@ -53,10 +32,8 @@ $installer->run("
                 `scope` TEXT  NOT NULL default '',
 		`group_id` smallint(6) unsigned NOT NULL default 0,
 		`title` varchar(255) NOT NULL default '',
-		`url` varchar(255) NOT NULL default '',
-		`url_target` varchar(255) NOT NULL default '',
+		`view` varchar(255) NOT NULL default 'grid',
 		`image` varchar(255) NOT NULL default '',
-		`alt_text` varchar(255) NOT NULL default '',
 		`html` text NOT NULL default '',
 		`sort_order` tinyint(3) NOT NULL default 1,
 		`is_enabled` tinyint(1) NOT NULL default 1,

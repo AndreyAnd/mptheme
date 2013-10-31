@@ -45,8 +45,15 @@ class Trio_Wizard_Block_Adminhtml_Wizard_Edit_Tab_Form extends Mage_Adminhtml_Bl
 			'required'	=> true,
 			'class'		=> 'required-entry'
 		));
-                //$_model = Mage::registry('group_data');
-                $code = $fieldset->addField('code', 'select', array(
+		$view = $fieldset->addField('view','select', array(
+			'name'		=> 'view',
+			'label'		=> $this->__('View'),
+			'title'		=> $this->__('View'),
+			'required'	=> true,
+			'values'	=> array('list'=>'list','grid' => 'grid')
+		));
+		//$_model = Mage::registry('group_data');
+		$code = $fieldset->addField('code', 'select', array(
 			'name'		=> 'code',
 			'label'		=> Mage::helper('wizard')->__('Code'),
 			'note'		=> Mage::helper('wizard')->__('a unique identifier attribute'),
@@ -108,10 +115,8 @@ class Trio_Wizard_Block_Adminhtml_Wizard_Edit_Tab_Form extends Mage_Adminhtml_Bl
                 
                 //------------------------------------
                 
-                $data=null;
-                 if ($wizard = Mage::registry('wizard_wizard')) {
-			$data=$wizard->getData();
-		}
+                //$data=null;
+                 //if ($wizard = Mage::registry('wizard_wizard')) {  $data=$wizard->getData(); }
                 //var_dump($data);die;
                 $fieldset->addField('scope', 'text', array(
                         'name'  =>'scope',
@@ -121,7 +126,7 @@ class Trio_Wizard_Block_Adminhtml_Wizard_Edit_Tab_Form extends Mage_Adminhtml_Bl
                 )); 
 
                 $form->getElement('scope')->setRenderer(
-                    $this->getLayout()->createBlock('adminhtml/trio_wizard_tab_scope')->assign('data', $data)->assign('id_data','wizard_scope')
+                    $this->getLayout()->createBlock('adminhtml/trio_wizard_tab_scope')->assign('id_data','wizard_scope')
                 );
                 /*
                 $fieldset->addType('scope_type', Mage::getConfig()->getBlockClassName('adminhtml/trio_wizard_tab_scope'));

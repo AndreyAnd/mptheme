@@ -1,7 +1,7 @@
 <?php
 /**
- * @category	Trio
- * @package		Wizard
+ * @package	Wizard
+ * @author     callmeandrey@gmail.com
  */
 
 class Trio_Wizard_Block_Adminhtml_Group_Edit_Tab_Form extends Mage_Adminhtml_Block_Widget_Form {
@@ -30,14 +30,14 @@ class Trio_Wizard_Block_Adminhtml_Group_Edit_Tab_Form extends Mage_Adminhtml_Blo
 			'required'	=> true,
                         'value'		=> $_model->getCode()
 		));
-
+        /*
 		$position = $fieldset->addField('position', 'select', array(
 			'name'		=> 'position',
 			'label'		=> Mage::helper('wizard')->__('Position'),
 			'required'	=> true,
 			'values'	=> Mage::getSingleton('wizard/config_source_position')->toOptionArray(),
 			'value'		=> $_model->getPosition()
-		));
+		)); */
 
 		$sort_order = $fieldset->addField('sort_order', 'text', array(
 			'name'		=> 'sort_order',

@@ -1,62 +1,106 @@
-.wizards {  
-    z-index:1000000; 
-    position: absolute ;
-    left:50px; 
-    top:30px;
-    background-color: #cccccc;
-    font-size: 100%;
-    width: 690px;
-    max-height: 330px;
+.wizard.none {display:none;}
+.wizards {
+	background:#fff;
+	background-size:cover !important;
+	margin:20px 0;
+	border-radius:15px;
+	-moz-border-radius:15px;
+	-webkit-border-radius:15px;
 }
-.wizards .none {
-    display: none;
+.wizard {
+	background-size:cover !important;
+	padding:15px;
+	border-radius:15px;
+	-moz-border-radius:15px;
+	-webkit-border-radius:15px;
 }
-.wizard{
-    vertical-align: baseline;
-    background: transparent;
+.wizards h2 {
+	font-size:18px;
+	line-height:23px;
+	margin:0 0 10px;
 }
-.wizard .buttons{
-    cursor: pointer;
-    -webkit-appearance: button;
-    font-size: 100%;
-    vertical-align: baseline;
-    align-items: flex-start;
-    text-align: center;
-    cursor: default;
-    color: buttontext;
-    padding: 2px 6px 3px;
-    border: 2px outset buttonface;
-    border-image-source: initial;
-    border-image-slice: initial;
-    border-image-width: initial;
-    border-image-outset: initial;
-    border-image-repeat: initial;
-    background-color: buttonface;
-    box-sizing: border-box;
+.wizards ul {
+	width:100%;
+	overflow:hidden;
+	font-size:0;
+	line-height:0;
 }
-.wizard img {
-    height: 100%;
-    width: 100%;
+.wizards ul li {
+	display:inline-block;
+	vertical-align:top;
+	width:31.3%;
+	padding:1%;
+	margin:0 0 10px;
+	font-size:12px;
+	line-height:17px;
 }
-.wizard ul{
-    overflow: hidden;
-    list-style-type: none !important;
-    padding: 20px 0 0 !important;
-    list-style: none;
+.wizards label {
+	display:block;
+	cursor:pointer;
+	padding:10px;
+	border-radius:20px;	-moz-border-radius:20px;	-webkit-border-radius:20px;
+	overflow:hidden;
 }
-.wizard ul li{
-    display: list-item;
-    text-align: -webkit-match-parent;
+.wizards ul li span {
+	display:block;
+	text-align:center;
+	padding:0 0 10px;
 }
-.scip {
-    font-size: 13px;
-    color: #580d0d;
-    text-decoration: underline;
+.wizards label input {
+	display:none;
 }
-.wizard a:focus,a:hover,a:active {
-    color: #580d0d;
+.wizards label img {
+	display:block;
+	margin:0 auto;
+	width:100%;
+	max-width:200px;
+	height:auto;
 }
-.wizard li img{
-   width: 140px;
-   height: 92px;
+.wizards label.active {
+	box-shadow: inset 0 0 3px #ccc;	-moz-box-shadow: inset 0 0 3px #ccc;	-webkit-box-shadow: inset 0 0 3px #ccc;
 }
+.wizards .button {
+	background:#aec900;
+	color:#fff;
+	border-style:none;
+	font-size:12px;
+	line-height:36px;
+	height:36px;
+	float:left;
+	margin:0 10px 5px 0;
+	padding:0 15px;
+	-webkit-transition: background 300ms ease;
+		-moz-transition: background 300ms ease;
+        -ms-transition: background 300ms ease;
+        -o-transition: background 300ms ease;
+		transition: background 300ms ease;
+}
+.wizards .buttons {
+	width:100%;
+	overflow:hidden;
+}
+.wizards .button:hover {background:#f24e08;}
+.wizard.wizard-list ul li {
+	width:47%;
+	margin:0 0 10px;
+}
+.wizard.wizard-list li img {
+	float:left;
+	margin:0 10px 0 0;
+	max-width:100px;
+}
+.wizard.wizard-list .frame {
+	height:1%;
+	overflow:hidden;
+}
+.wizard.wizard-list ul li span {text-align:left;}
+
+
+
+
+
+
+
+
+
+

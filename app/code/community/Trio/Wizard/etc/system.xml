@@ -1,23 +1,21 @@
 <?xml version="1.0"?>
 <!--
-/**
- * @category    Trio
- * @package     Wizard
- */
+* @package	Wizard
+* @author     callmeandrey@gmail.com
 -->
 <config>
     <tabs>
-        <trio translate="label">
-                <label>Trio</label>
-                <sort_order>200</sort_order>
-        </trio>
+        <trioextensions translate="label">
+                <label>Trio extensions</label>
+                <sort_order>220</sort_order>
+        </trioextensions>
     </tabs>
     <sections>
         <wizard translate="label" module="wizard">
             <label>Wizard</label>
-            <tab>trio</tab>
+            <tab>trioextensions</tab>
             <frontend_type>text</frontend_type>
-            <sort_order>90</sort_order>
+            <sort_order>220</sort_order>
             <show_in_default>1</show_in_default>
             <show_in_website>1</show_in_website>
             <show_in_store>1</show_in_store>
