@@ -17,7 +17,7 @@ class Trio_Wizard_Block_Adminhtml_Wizard_Edit_Tab_Form extends Mage_Adminhtml_Bl
 		);
 	}
 
-	protected function _prepareForm() {
+	protected function _prepareForm() {               
 		$form = new Varien_Data_Form();
                 
 		$form->setHtmlIdPrefix('wizard_');
@@ -124,9 +124,9 @@ class Trio_Wizard_Block_Adminhtml_Wizard_Edit_Tab_Form extends Mage_Adminhtml_Bl
                         'class' =>'requried-entry'
                         //, 'value' =>$data['scope']
                 )); 
-
+                $atributes=$this->getAttributesValues();
                 $form->getElement('scope')->setRenderer(
-                    $this->getLayout()->createBlock('adminhtml/trio_wizard_tab_scope')->assign('id_data','wizard_scope')
+                    $this->getLayout()->createBlock('adminhtml/trio_wizard_tab_scope')->assign('id_data','wizard_scope')->assign('atributes',$atributes)  
                 );
                 /*
                 $fieldset->addType('scope_type', Mage::getConfig()->getBlockClassName('adminhtml/trio_wizard_tab_scope'));
@@ -191,11 +191,11 @@ class Trio_Wizard_Block_Adminhtml_Wizard_Edit_Tab_Form extends Mage_Adminhtml_Bl
 		return $options;
 	}
         
-        public function getAttributes()
+        public function getAttributes($_code='wizard_attributes')
         {
             $config    = Mage::getModel('eav/config');
             $storeId=Mage::app()->getStore(true)->getId();
-            $attribute = $config->getAttribute(Mage_Catalog_Model_Product::ENTITY, 'wizard_attributes');
+            $attribute = $config->getAttribute(Mage_Catalog_Model_Product::ENTITY, $_code);
             $options = Mage::getResourceModel('eav/entity_attribute_option_collection');
             $values  = $options->setAttributeFilter($attribute->getId())->setStoreFilter($storeId)->toOptionArray();
             //$values=Array ( [0] => Array ( [value] => 4 [label] => color ) [1] => Array ( [value] => 5 [label] => price ) [2] => Array ( [value] => 3 [label] => wizard_attributes ) ) 
@@ -218,5 +218,44 @@ class Trio_Wizard_Block_Adminhtml_Wizard_Edit_Tab_Form extends Mage_Adminhtml_Bl
 	public function _addOrEdit() {
 		if($this->getRequest()->getParam('id')) { return true; } else { return false; }
 	}
+        
+         public function getAttributesValues()
+        {
+            $values= $this->getAttributes();            
+            $arr=array();
+             /*           
+            foreach($values as $val)
+            {
+               //$arr[$val["label"]] = $val["label"]; 
+               $attribute_code=$val["label"];
+               $attribute_details = Mage::getSingleton("eav/config")
+                                    ->getAttribute("catalog_product", $attribute_code);
+               $arr[$val["label"]]=$attribute_details->getSource()->getAllOptions(false);
+               // $option["value"]   $option["label"] 
+            }
+              */          
+            
+            $storeId = Mage::app()->getStore(true)->getId();
+            
+           
+            foreach($values as $val)
+            {
+                //$arr[$val["label"]] = $val["label"]; 
+                $attribute_code=$val["label"];
+                 //echo $attribute_code;
+                $config   = Mage::getModel('eav/config');
+                $options_model = Mage::getResourceModel('eav/entity_attribute_option_collection');
+                $attribute = $config->getAttribute(Mage_Catalog_Model_Product::ENTITY, $attribute_code);          
+                $options = $options_model->setAttributeFilter($attribute->getId())->setStoreFilter($storeId)->toOptionArray();
+                //print_r($options);
+                echo $val["label"];
+                $arr[$val["label"]]=$options;
+                // $option["value"]   $option["label"] 
+            }
+            //print_r( Mage::getSingleton('adminhtml/system_config_source_yesno')->toOptionArray() );
+            print_r($arr);die('Trio_Wizard_Block_Adminhtml_Wizard_Edit_Tab_Form->getAttributesValues()');
+            return $arr; 
+              
+        }
 
 }
