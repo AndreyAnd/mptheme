@@ -1,0 +1,42 @@
+/**
+ * WARNING: Do not change this file. Your changes will be lost.
+ * 2013-10-19 21:26:08 */
+
+
+body {
+	color: ;
+        }
+a { 
+    color: ; 
+        }
+a:hover { color: ; }
+button.button span { 
+    background: ; 
+    color: ; 
+        }
+button.button:hover span { background: ; color: ; }
+button.button:active span { background: ; color: ; }
+.sale-product-icon { background: ; color: ; }
+.new-product-icon { background: ; color: ; }
+#opc-review .data-table tfoot td.last strong .price, #opc-review td.last .price, .cart .totals tfoot td .price, .cart-table td.sub-total, .top-cart .qty-price .price, .block .regular-price, .block .regular-price .price, .price-box .price, .special-price .price { 
+    color: ; 
+        }
+.block .block-title strong {
+        }
+.page, .header, .header .header-topbar, .header h1.page-title { background-color: ; }
+.header .header-bground { background-color: ; }
+.header .form-search input.input-text { color: ; border-color: ; }
+.header .form-search input.input-text:hover { color: ; border-color: ; }
+.header h1.page-title {
+        }
+.footer { color: ; }
+.footer a { color: ; }
+.footer a:hover { color: ; }
+.footer button.button span { background: ; color: ; }
+.footer button.button:hover span { background: ; color: ; }
+.footer .col3-set { color: ; }
+.footer .col3-set a { color: ; }
+.footer .col3-set a:hover { color: ; }
+.footer .footer-menu { color: ; }
+.footer .footer-menu a { color: ; }
+.footer .footer-menu a:hover { color: ; }

@@ -10,6 +10,8 @@
                 
 		if( $_product->isSaleable() && $allowed_to_quotemode!=1 ) 
 		{
+                        
+
 			$cartBtn = 	'<button type="button" title="%s" class="button btn-cart" onclick="setLocation(\'%s\')"><span><span>%s</span></span></button><br />';
 			$ordermode = sprintf($cartBtn, $btnCartTitle, $addCartUrl, $btnCartTitle);
 		}

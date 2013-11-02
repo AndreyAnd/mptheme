@@ -48,3 +48,21 @@ jQuery(document).ready(function(){
         startTimer();
     });
 });
+
+
+jQuery(document).ready(function(){
+	jQuery(".wizards label").click(function(event){
+		var pul=jQuery(event.target).closest('ul');
+		jQuery("label",pul).removeClass("active");
+		jQuery(this).addClass("active");
+	});
+});
+
+
+
+
+
+
+
+
+

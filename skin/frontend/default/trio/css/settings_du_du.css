@@ -1,0 +1,18 @@
+/**
+ * WARNING: Do not change this file. Your changes will be lost.
+ * 2013-10-18 23:49:01 */
+
+
+.col-main > .category-products .products-list li.item:hover {
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    box-shadow: 0px 0px 5px #888;
+    -moz-box-shadow: 0px 0px 5px #888;
+    -webkit-box-shadow: 0px 0px 5px #888;
+}
+@media only screen and (max-width: 767px)  {
+}
+
+@media only screen and (min-width: 1025px) and (max-height: 800px)  {
+}

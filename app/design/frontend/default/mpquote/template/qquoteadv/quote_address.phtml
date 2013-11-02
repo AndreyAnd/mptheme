@@ -1,0 +1,175 @@
+<div class="qquote-client-collaterals">
+  <div class="client-data box"><h4><?php echo $this->__('Enter your details to get a price proposal') ?> </h4>
+
+	
+	<br/>
+	<textarea placeholder="<?php echo $this->__('Do you have a general remark with your quote request?') ?>" name="customer[client_request]" id="customer:client_request" cols="10" rows="5" style="width:93%;" class="input-text"></textarea>
+
+	<?php $billingEmail = $this->getValue('email', 'billing'); ?>        
+        
+	<?php if ($this->isCustomerLoggedIn() && !empty($billingEmail)): ?>
+  	<fieldset>
+  	  <p>
+          <input type="radio" name="billing_address" value="use_default_billing" checked="checked"
+		  onclick="$('billing-new-address-form').hide();$('qquoteadv_shipping_box').hide();">&nbsp;<label
+  		for="customer:use_default_billing"><?php echo $this->__('Default Address') ?> </label>
+          &nbsp;<input type="radio" name="billing_address" value="use_new_billing" 
+  		  onclick="$('billing-new-address-form').show(); $('qquoteadv_shipping_box').show()">&nbsp;<label
+  		for="customer:use_new_billing"><?php echo $this->__('New Address') ?></label>
+  	  </p>
+  	</fieldset>
+	<?php endif; ?>
+
+	<?php if ($this->isCustomerLoggedIn() && !empty($billingEmail)): ?>
+  	<div id="billing-new-address-form" style="display:none;">
+	  <?php else: ?>
+  	  <div class="input-box">
+		<?php endif; ?>
+
+		<?php $email = $this->getValue('email', 'billing') ? $this->getValue('email', 'billing') : $this->getCustomerEmail() ?>
+		<table id="qquote-tbl-address" cellspacing='6' cellpadding='3' border="0" width="100%" >
+		  <tr>
+			<td colspan="2" align="left">
+			  <input <?php if (!empty($email)): ?>readonly="readonly"<?php endif; ?> type='text' placeholder="<?php echo ($email)?$email:$this->__('Email Address *'); ?>" name='customer[email]' id='customer:email' class="validate-email required-entry input-text" /><span id="please-wait" style="display:none;"><img alt="<?php echo $this->__('Checking..') ?>" src="<?php echo $this->getSkinUrl('images/ajax-loader.gif') ?>" /></span><div style="display:none;" id="email_message">&nbsp;</div>
+
+			</td>
+		  </tr>	
+		  <tr>
+			<td  width="20%">
+			  <input type='text' placeholder="<?php echo ($this->getValue('firstname', 'billing'))?$this->getValue('firstname', 'billing'):$this->__('First Name *') ?>" name='customer[firstname]' id='customer:firstname' class="required-entry input-text" />
+			</td>
+			<td class="p5">
+			  <input type='text' placeholder="<?php echo ($this->getValue('lastname', 'billing'))?$this->getValue('lastname', 'billing'):$this->__('Last Name *') ?>" name='customer[lastname]' id='customer:lastname' class="required-entry input-text" />                          
+			</td>
+
+		  </tr>
+		  <tr>
+			<td>
+			  <input type='text' class="input-text" placeholder="<?php echo $this->__('Company') ?>" name='customer[company]' id='customer:company' />
+			</td>
+			<td class="p5">
+			  <input type='text' placeholder=" <?php echo $this->__('Telephone *') ?>" name='customer[telephone]' id='customer:telephone' class="required-entry input-text" />
+			</td>
+		  </tr>
+
+		  </td>
+		  </tr>
+
+		</table>
+	  </div>
+          <br />
+          
+          <?php if(Mage::getStoreConfig('qquoteadv/quote_form/newsletter_subscribe')): ?>
+         <div>
+            <input id="chkNews" type="checkbox" name="newsletter" > <?php echo $this->__('Sign up for our newsletter'); ?>
+         </div>
+          <?php endif; ?>
+          
+	  <?php if (!$this->isCustomerLoggedIn()): ?>
+  	  <div>
+              
+              <?php if(!Mage::getStoreConfig('qquoteadv/quote_form/require_shipping')): ?>
+  		<input id="chkShip" type="checkbox" 
+  			   onclick="if(this.checked){ $('shipDiv').show(); }else{ $('shipDiv').hide(); } "> <?php echo $this->__('Request a shipping quote'); ?>
+              <?php endif; ?>  
+  	  </div>
+	  <?php endif; ?>
+
+	</div>
+
+	<?php if ($this->isCustomerLoggedIn() && !empty($billingEmail)): ?>
+            <div id="qquoteadv_shipping_box" class="qquote-cart-collaterals" style="display:none;">
+	<?php else: ?>
+            <div class="qquote-cart-collaterals">
+	<?php endif; ?>
+
+		<div id="shipDiv" class="shipping-adress box" <?php if (!$this->isCustomerLoggedIn() && !Mage::getStoreConfig('qquoteadv/quote_form/require_shipping')): ?> style="display:none;" <?php endif; ?> >
+		  <h4><?php echo $this->__('Shipping details') ?></h4>
+
+		  <p><?php echo $this->__("Enter your destination to get a shipping quotation") ?></p>
+
+
+		  <table id="qquote-tbl-shipping" cellspacing='3' cellpadding='3' border="0" width="100%">
+			<tr>
+			  <td  width="20%">
+				<input type='text' placeholder="<?php echo ($this->getValue('street', 'shipping'))?$this->getValue('street', 'shipping'):$this->__('Address *'); ?>" name='customer[address]' id='customer:address' class="required-entry input-text addr w224" />
+			  </td>
+			  <td class="p5">
+				<input type='text' placeholder="<?php echo ($this->getValue('city', 'shipping'))?$this->getValue('city', 'shipping'):$this->__('City *'); ?>" name='customer[city]' id='customer:city' class="required-entry input-text w224"  />
+			  </td>
+			</tr>
+			<tr>
+			  <td>
+				<input type='text' placeholder="<?php echo ($this->getValue('postcode', 'shipping'))?$this->getValue('postcode', 'shipping'):$this->__('Zip/Postal Code *'); ?>" name='customer[postcode]' id='customer:postcode' class="required-entry input-text w224"  />
+			  </td>
+			  <td class="p5">
+				<select name='customer[region_id]' id='region_id' title="<?php echo $this->__('State/Province') ?>" class="validate-select" style="display:none;">
+					<option><?php echo $this->__('State/Province *') ?></option>
+					<option value=""><?php echo $this->getValue('region_id', 'shipping'); ?></option>
+				</select>
+				<input type="text" name='customer[region]' id='region' placeholder="<?php echo ($this->getValue('region', 'shipping'))?$this->getValue('region', 'shipping'): $this->__('State/Province'); ?>"  title="<?php echo $this->__('State/Province') ?>" class="input-text w224" style="display:none;" />
+			  </td>
+			</tr>
+
+                        <?php //$countryCode = $this->getValue('country', 'billing'); ?>
+                        <?php //if (empty($countryCode)) { $countryCode = null; } ?>			
+			
+			<tr>
+			  <td colspan="2">
+                            <?php echo $this->__('Country') ?> <span class="required">*</span><br/>				  
+                            <?php echo Mage::getBlockSingleton('directory/data')->getCountryHtmlSelect("", 'customer[country_id]', 'country', $this->__('Country')) ?>	  
+			  </td>
+			</tr>
+		  </table>
+		  
+		  <p class="required">* <?php echo $this->__('Required Fields') ?></p>
+		</div>
+</div>
+  
+
+<script type="text/javascript">
+//<![CDATA[
+	var elmEmail    = $('customer:email');
+	var elmEmailMsg = $('email_message');
+    var btnSubm     = $('submitOrder');
+	if (elmEmail) {
+	   Event.observe(elmEmail, 'keydown', function(event){ 
+			var e=event || window.event;
+			if(btnSubm){ btnSubm.disabled=false; }
+			if(e){   if (e.keyCode == 13) return false; }
+	   });
+
+	   Event.observe(elmEmail, 'click', function(event){   
+			cssFailClass = 'validation-failed';
+			if( elmEmail.hasClassName(cssFailClass) ){
+				  elmEmail.removeClassName(cssFailClass);
+				  elmEmail.value='';
+
+				  elmEmailMsg.hide();
+				  elmEmailMsg.removeClassName('validation-advice');
+					
+				  if(btnSubm){	
+					btnSubm.setStyle({background: '#F18200'});
+					btnSubm.disabled=false;
+				  }
+			} 
+	   });	  
+	}
+//]]>	
+</script>
+
+<?php 
+$disable_check = Mage::getStoreConfig('qquoteadv/general/disable_exist_account_check');
+if(!$disable_check):
+?>
+<script type="text/javascript">
+    //<![CDATA[
+    var elmEmail = $('customer:email');
+    if (elmEmail) {
+       var url = '<?php echo $this->getUrl('qquoteadv/index/useJsEmail') ?>';
+       var message = '<?php echo $this->__('Customer email already exists. You should login <a href=%s>here</a>', $this->getLoginUrl()) ?>';
+
+       Event.observe(elmEmail, 'change', function(event){ isExistUserEmail(event, url, message) });  
+    }//]]>
+</script>
+<?php endif; ?>

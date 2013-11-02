@@ -52,7 +52,14 @@
             <?php else://if (!$this->hasOptions()):?>
                 <div class="add-to-box">
                     <?php if($_product->isSaleable()): ?>
-                        <?php echo $this->getChildHtml('addtocart') ?>
+                        <?php //echo $this->getChildHtml('addtocart') ?>
+                    
+                        <?php echo Mage::app()->getLayout()->createBlock('qquoteadv/qquotebtn')
+                                ->setData('product', $_product)
+                                ->setTemplate('qquoteadv/catalog/product/view/addtoquoteadv.phtml')
+                                ->toHtml(); ?>
+                    
+                    
                     <?php endif; ?>
                     <?php echo $this->getChildHtml('addto') ?>
                 </div>

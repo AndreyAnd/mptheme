@@ -3740,22 +3740,36 @@ ul.cart-button-set li.first{
     font-family: 'Lato_Regular';
     font-size: 14px;
 }
+#qquote-tbl-shipping .sbHolder,
 .cart-extra .shipping-form .sbHolder {
     width: 294px;
     height: 36px;
 }
+#qquote-tbl-shipping .sbHolder {width:100%;}
 .cart-extra .shipping-form .sbSelector {
     width: 223px;
     padding: 6px 15px;
 }
+#qquote-tbl-shipping .sbHolder .sbToggle,
 .cart-extra .shipping-form .sbToggle {
     padding: 6px;
     background-position: 13px -26px;
+}
+#qquote-tbl-shipping .sbHolder .sbSelector {
+	display:block;
+	margin:0 41px 0 0;
+	position:relative;
+	width:auto;
+	padding:6px 5px;
 }
 .cart-extra .shipping-form .sbOptions {
     width: 253px;
     top: 35px !important;
     height: 110px;
+}
+#qquote-tbl-shipping .sbOptions {
+	width:76%;
+	margin:12px 0 0;
 }
 .cart-extra .shipping-form input[type=text] {
     padding: 10px 15px;
@@ -5414,3 +5428,13 @@ p.interact {
     .header div.social-icons { position: static; margin-left: 30px; }
     .header div.copyrights { position: static; margin-left: 30px; margin-top: 85px; }
 }
+
+
+
+.qty-btn {
+	width:100%;
+	clear:both;
+	overflow:hidden;
+}
+#quotelist textarea {background:none;}
+#quotelist .qty {border:1px solid #ccc;}

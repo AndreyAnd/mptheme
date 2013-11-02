@@ -75,7 +75,14 @@ $code  = $store->getCode();
                         if(Mage::getStoreConfig("trio_settings/category_grid/hover_button", $code)){    
                     ?>
                     <ul class="cart-button-set">
-                        <li class="first"><a href="<?php echo $this->getAddToCartUrl($_product) ?>" class="addtocart" title="<?php echo $this->__('Add to Cart') ?>"><?php echo $this->__('Add to Cart') ?></a></li>
+                        <li class="first">
+                            <?php /*<a href="<?php echo $this->getAddToCartUrl($_product) ?>" class="addtocart" title="<?php echo $this->__('Add to Cart') ?>"><?php echo $this->__('Add to Cart') ?></a>
+                              */?>
+                             <?php echo Mage::app()->getLayout()->createBlock('qquoteadv/qquotebtn')
+                                            ->setData('product', $_product)
+                                            ->setTemplate('qquoteadv/catalog/product/c2qBtnGrid.phtml')
+                                            ->toHtml(); ?>
+                        </li>
                         <li><a href="<?php echo $this->helper('wishlist')->getAddUrl($_product) ?>" class="addtowishlist" title="<?php echo $this->__('Add to Wishlist') ?>"><?php echo $this->__('Add to Wishlist') ?></a></li>
                         <li class="last"><a href="javascript:void(0)" url="<?php echo $this->getAddToCompareUrl($_product) ?>" class="addtocompare" title="<?php echo $this->__('Add to Compare') ?>"><?php echo $this->__('Add to Compare') ?></a></li>
                     </ul>
